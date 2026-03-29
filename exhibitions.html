@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EXHIBITIONS | MAANYA PATEL — PROFESSIONAL HISTORY</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,400;0,700;0,900;1,900&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ---- Hero ---- */
+    .ex-hero {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 40px;
+      align-items: start;
+      padding: 70px 0 60px;
+    }
+
+    .ex-hero h1 {
+      font-family: 'Epilogue', sans-serif;
+      font-weight: 900;
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      line-height: 0.87;
+      letter-spacing: -0.05em;
+      text-transform: uppercase;
+      transform: rotate(-0.8deg);
+    }
+
+    .ex-hero h1 .red { color: #c41d31; }
+
+    .ex-hero-badge {
+      display: inline-block;
+      background: #fcd846;
+      color: #383834;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      transform: rotate(1.5deg);
+      margin-bottom: 20px;
+    }
+
+    .ex-hero-img {
+      position: relative;
+      margin-top: 20px;
+    }
+
+    .ex-hero-img-inner {
+      border: 6px solid #383834;
+      overflow: hidden;
+      filter: grayscale(1);
+      transition: filter 0.5s;
+    }
+
+    .ex-hero-img-inner:hover { filter: grayscale(0); }
+
+    .ex-hero-img-inner .canvas { width: 100%; height: 340px; }
+
+    .ex-hero-fig {
+      position: absolute;
+      bottom: -20px;
+      right: 0;
+      font-style: italic;
+      font-size: 0.7rem;
+      opacity: 0.5;
+      letter-spacing: 0.05em;
+    }
+
+    /* ---- Section Header ---- */
+    .section-header {
+      display: flex;
+      align-items: flex-end;
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+
+    .section-header h2 {
+      font-family: 'Epilogue', sans-serif;
+      font-weight: 900;
+      font-size: clamp(2rem, 5vw, 4rem);
+      text-transform: uppercase;
+      letter-spacing: -0.04em;
+      border-bottom: 8px solid #383834;
+      padding-bottom: 4px;
+      line-height: 1;
+    }
+
+    .section-header p {
+      max-width: 260px;
+      font-size: 0.85rem;
+      line-height: 1.5;
+      color: #656460;
+      margin-bottom: 8px;
+    }
+
+    /* ---- Exhibition List ---- */
+    .ex-list {
+      border-top: 4px solid #383834;
+      margin-bottom: 64px;
+    }
+
+    .ex-row {
+      border-bottom: 4px solid #383834;
+      padding: 24px 12px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      transition: background 0.08s;
+      cursor: default;
+    }
+
+    .ex-row:hover { background: #f0eee6; }
+
+    .ex-year {
+      font-family: 'Epilogue', sans-serif;
+      font-weight: 900;
+      font-size: 2rem;
+      letter-spacing: -0.04em;
+      color: #c41d31;
+      min-width: 80px;
+    }
+
+    .ex-year.past { opacity: 0.35; }
+    .ex-year.older { opacity: 0.15; }
+
+    .ex-info { flex: 1; }
+
+    .ex-title {
+      font-family: 'Epilogue', sans-serif;
+      font-weight: 700;
+      font-size: 1.25rem;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+
+    .ex-title.struck {
+      text-decoration: line-through;
+      text-decoration-color: #c41d31;
+      text-decoration-thickness: 3px;
+    }
+
+    .ex-venue {
+      font-size: 0.85rem;
+      color: #656460;
+      margin-top: 4px;
+    }
+
+    .ex-badge {
+      font-size: 0.62rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 4px 10px;
+      white-space: nowrap;
+    }
+
+    .ex-badge.upcoming {
+      background: #c41d31;
+      color: white;
+      transform: rotate(-1.5deg);
+      display: inline-block;
+    }
+
+    .ex-badge.digital {
+      font-style: italic;
+      color: #656460;
+      border: 2px solid #bbb9b4;
+    }
+
+    /* ---- Section divider ---- */
+    .ex-divider {
+      height: 12px;
+      background: #383834;
+      opacity: 0.08;
+      margin: 4px 0;
+    }
+
+    /* ---- Curatorial ---- */
+    .curatorial-section {
+      margin: 80px 0;
+    }
+
+    .curatorial-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 24px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .curatorial-title {
+      position: relative;
+    }
+
+    .curatorial-title h2 {
+      font-family: 'Epilogue', sans-serif;
+      font-weight: 900;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      text-transform: uppercase;
+      letter-spacing: -0.05em;
+      line-height: 0.92;
+    }
+
+    .curatorial-title-deco {
+      position: absolute;
+      right: -24px;
+      top: -10px;
+      width: 60px;
+      height: 60px;
+      border: 4px dashed #fcd846;
+      transform: rotate(10deg);
+    }
+
+    .curatorial-desc {
+      background: #383834;
+      color: #fffcf6;
+      padding: 28px 32px;
+      max-width: 360px;
+      transform: rotate(-0.8deg);
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    .curatorial-card {
+      border: 10px solid #383834;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      position: relative;
+    }
+
+    .curatorial-card-img {
+      overflow: hidden;
+    }
+
+    .curatorial-card-img img,
+    .curatorial-card-img .canvas {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      min-height: 320px;
+      display: block;
+      filter: grayscale(1);
+      transition: filter 0.4s;
+    }
+
+    .curatorial-card-img:hover img,
+    .curatorial-card-img:hover .canvas { filter: grayscale(0); }
+
+    .curatorial-card-body {
+      padding: 40px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: #f6f3ed;
+    }
+
+    .curatorial-year {
+      font-family: 'Epilogue', sans-serif;
+      font-weight: 900;
+      font-size: 2.5rem;
+      color: #c41d31;
+      line-height: 1;
+    }
+
+    .curatorial-name {
+      font-family: 'Epilogue', sans-serif;
+      font-weight: 900;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      text-transform: uppercase;
+      letter-spacing: -0.04em;
+      line-height: 0.95;
+      margin: 8px 0 4px;
+    }
+
+    .curatorial-by {
+      font-size: 1rem;
+      color: #656460;
+      margin-bottom: 20px;
+    }
+
+    .curatorial-venue {
+      border-left: 4px solid #fcd846;
+      padding-left: 14px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .curatorial-blurb {
+      font-style: italic;
+      font-size: 0.9rem;
+      color: #656460;
+      line-height: 1.6;
+    }
+
+    .curatorial-num {
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      font-family: 'Epilogue', sans-serif;
+      font-weight: 900;
+      font-size: 4rem;
+      opacity: 0.08;
+      letter-spacing: -0.06em;
+    }
+
+    /* ---- CTA Block ---- */
+    .ex-cta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border: 5px solid #383834;
+      margin: 60px 0;
+    }
+
+    .ex-cta-left {
+      padding: 48px 40px;
+      background: #fffcf6;
+      border-right: 5px solid #383834;
+    }
+
+    .ex-cta-right {
+      padding: 48px 40px;
+      background: #c41d31;
+      color: white;
+    }
+
+    .ex-cta h3 {
+      font-family: 'Epilogue', sans-serif;
+      font-weight: 900;
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+    }
+
+    .ex-cta p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .ex-cta-right p { opacity: 0.9; }
+
+    .btn-outline {
+      display: inline-block;
+      font-family: 'Epilogue', sans-serif;
+      font-weight: 900;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 12px 24px;
+      border: 4px solid #383834;
+      text-decoration: none;
+      color: #383834;
+      transition: all 0.08s;
+    }
+
+    .btn-outline:hover {
+      background: #383834;
+      color: #fffcf6;
+      transform: translate(3px, 3px);
+    }
+
+    .sub-form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .sub-form input {
+      background: transparent;
+      border: none;
+      border-bottom: 3px solid rgba(255,255,255,0.7);
+      color: white;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.9rem;
+      padding: 8px 4px;
+      outline: none;
+    }
+
+    .sub-form input::placeholder { color: rgba(255,255,255,0.5); }
+
+    .sub-form button {
+      background: white;
+      color: #c41d31;
+      border: none;
+      font-family: 'Epilogue', sans-serif;
+      font-weight: 900;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 12px 24px;
+      cursor: pointer;
+      transition: opacity 0.1s;
+    }
+
+    .sub-form button:hover { opacity: 0.9; }
+
+    @media (max-width: 768px) {
+      .ex-hero { grid-template-columns: 1fr; }
+      .ex-hero-img { display: none; }
+      .curatorial-card { grid-template-columns: 1fr; }
+      .curatorial-card-img { min-height: 240px; }
+      .ex-cta { grid-template-columns: 1fr; }
+      .ex-cta-left { border-right: none; border-bottom: 5px solid #383834; }
+      .curatorial-header { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== NAVIGATION ===== -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Maanya Patel</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="about.html">About</a>
+      <a href="exhibitions.html" class="active">Exhibitions</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <button class="nav-menu-btn" onclick="toggleMenu()" aria-label="Menu">☰</button>
+  </div>
+  <div class="nav-mobile" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="about.html">About</a>
+    <a href="exhibitions.html" class="active">Exhibitions</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<!-- ===== MAIN ===== -->
+<main class="page-content">
+
+  <!-- Hero -->
+  <section class="ex-hero">
+    <div>
+      <div class="ex-hero-badge">Archive 2019 — 2026</div>
+      <h1>
+        Exhibitions:<br/>
+        <span class="red">Professional</span><br/>
+        History
+      </h1>
+    </div>
+    <div class="ex-hero-img">
+      <div class="ex-hero-img-inner">
+        <!-- Replace with: <img src="images/exhibition-view.jpg" alt="Exhibition installation view" style="width:100%;height:340px;object-fit:cover"> -->
+        <div class="canvas canvas-2" style="height:340px;"></div>
+      </div>
+      <span class="ex-hero-fig">Fig. 01: Nervous System Visuals</span>
+    </div>
+  </section>
+
+  <!-- Group Exhibitions -->
+  <section style="margin-bottom:80px;">
+    <div class="section-header">
+      <h2>Group Exhibitions</h2>
+      <p>A record of shared space, collective energy, and the physical manifestations of the abstract condition.</p>
+    </div>
+
+    <div class="ex-list">
+      <!-- 2026 -->
+      <div class="ex-row">
+        <div class="ex-year">2026</div>
+        <div class="ex-info">
+          <div class="ex-title">The Abstract Condition</div>
+          <div class="ex-venue">Firepit Art Gallery and Studios CIC, London</div>
+        </div>
+        <span style="opacity:0;font-size:1.4rem;">↗</span>
+      </div>
+
+      <div class="ex-row">
+        <div class="ex-year">2026</div>
+        <div class="ex-info">
+          <div class="ex-title">Materiality: The Language of Matter</div>
+          <div class="ex-venue">Espacio Gallery, London</div>
+        </div>
+      </div>
+
+      <div class="ex-row" style="background:#fafaf6;">
+        <div class="ex-year">2026</div>
+        <div class="ex-info">
+          <div class="ex-title">Dreams and Nightmares: Eighth Edition</div>
+          <div class="ex-venue">Boomer Gallery, London</div>
+        </div>
+        <span class="ex-badge upcoming">Upcoming</span>
+      </div>
+
+      <!-- 2025 -->
+      <div class="ex-row">
+        <div class="ex-year past">2025</div>
+        <div class="ex-info">
+          <div class="ex-title">Abstract Harmony</div>
+          <div class="ex-venue">Espacio Gallery, London</div>
+        </div>
+      </div>
+
+      <div class="ex-row">
+        <div class="ex-year past">2025</div>
+        <div class="ex-info">
+          <div class="ex-title">The Darkside: Fourth Edition</div>
+          <div class="ex-venue">Boomer Gallery, London</div>
+        </div>
+      </div>
+
+      <!-- Visual break -->
+      <div class="ex-divider"></div>
+
+      <!-- 2024 -->
+      <div class="ex-row">
+        <div class="ex-year older">2024</div>
+        <div class="ex-info">
+          <div class="ex-title">Post Graduate Summer Show 2024</div>
+          <div class="ex-venue">AUB Gallery, Bournemouth</div>
+        </div>
+      </div>
+
+      <div class="ex-row">
+        <div class="ex-year older">2024</div>
+        <div class="ex-info">
+          <div class="ex-title">Art from the Basement</div>
+          <div class="ex-venue">AUB Gallery, Bournemouth</div>
+        </div>
+      </div>
+
+      <div class="ex-row">
+        <div class="ex-year older">2024</div>
+        <div class="ex-info">
+          <div class="ex-title struck">AR Tales: Walk Into the Canvas</div>
+          <div class="ex-venue">The Bug Gallery, AUB South Hall, Bournemouth</div>
+        </div>
+        <span class="ex-badge digital">Digital Interaction</span>
+      </div>
+
+      <!-- 2019 -->
+      <div class="ex-row" style="border-bottom-width:8px;">
+        <div class="ex-year" style="opacity:0.1;">2019</div>
+        <div class="ex-info">
+          <div class="ex-title">The Celluloid Chapter Art Foundation Artists Forum of Jharkhand</div>
+          <div class="ex-venue">Jamshedpur, India</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Curatorial Projects -->
+  <section class="curatorial-section">
+    <div class="curatorial-header">
+      <div class="curatorial-title">
+        <h2>Curatorial<br/>Project</h2>
+        <div class="curatorial-title-deco"></div>
+      </div>
+      <div class="curatorial-desc">
+        Defining spaces. Moving between the role of creator and orchestrator. Exploring the friction between the gallery and the public sphere.
+      </div>
+    </div>
+
+    <div class="curatorial-card">
+      <div class="curatorial-card-img">
+        <!-- Replace with: <img src="images/figli-del-mare.jpg" alt="Figli Del Mare exhibition"> -->
+        <div class="canvas canvas-6" style="min-height:360px;"></div>
+      </div>
+      <div class="curatorial-card-body">
+        <div>
+          <div class="curatorial-year">2024</div>
+          <div class="curatorial-name">Figli Del Mare</div>
+          <div class="curatorial-by">by Lisa Moro</div>
+          <div class="curatorial-venue">Avenue Shopping Centre, Bournemouth</div>
+          <p class="curatorial-blurb">
+            Public-facing curatorial installation bridging urban retail environments with visceral maritime narratives. A deliberate collision of the commercial and the elemental — the sea inside a shopping centre.
+          </p>
+        </div>
+        <div style="margin-top:28px;">
+          <a href="contact.html" style="display:inline-flex;align-items:center;gap:8px;background:#383834;color:#fffcf6;font-family:'Epilogue',sans-serif;font-weight:900;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.05em;padding:12px 22px;text-decoration:none;transition:transform 0.08s;" onmouseover="this.style.transform='translate(3px,3px)'" onmouseout="this.style.transform='translate(0,0)'">
+            View Documentation →
+          </a>
+        </div>
+      </div>
+      <div class="curatorial-num">C.01</div>
+    </div>
+  </section>
+
+  <!-- CTA block -->
+  <div class="ex-cta">
+    <div class="ex-cta-left">
+      <h3>Work With The System</h3>
+      <p>Open for commissions, curatorial collaborations, and exhibition inquiries across London and Bournemouth.</p>
+      <a href="contact.html" class="btn-outline">Send a Message</a>
+    </div>
+    <div class="ex-cta-right">
+      <h3>Studio Updates</h3>
+      <p>Join the private archive list for exhibition announcements and studio dispatches.</p>
+      <div class="sub-form">
+        <input type="email" placeholder="YOUR@EMAIL.COM" />
+        <button type="button">Subscribe</button>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">Maanya Patel</div>
+      <div class="footer-copy">© Maanya Patel — Nervous System on Display.</div>
+    </div>
+    <div class="footer-links">
+      <a href="#">Instagram</a>
+      <a href="#">Behance</a>
+      <a href="gallery.html">Archive</a>
+      <a href="contact.html">Studio</a>
+      <a href="#">Terms</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+</script>
+</body>
+</html>

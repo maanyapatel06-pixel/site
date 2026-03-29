@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GALLERY | MAANYA PATEL — EVIDENCE OF THE NERVOUS SYSTEM</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,400;0,700;0,900;1,900&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .g-hero {
+      padding: 70px 0 50px;
+      position: relative;
+    }
+    .g-hero-ghost {
+      position: absolute;
+      top: -20px; left: -10px;
+      font-family: 'Epilogue', sans-serif;
+      font-weight: 900;
+      font-size: clamp(5rem, 15vw, 11rem);
+      text-transform: uppercase;
+      color: #776300;
+      opacity: 0.08;
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+      letter-spacing: -0.05em;
+    }
+    .g-hero h1 {
+      font-family: 'Epilogue', sans-serif;
+      font-weight: 900;
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      line-height: 0.87;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+      position: relative;
+      z-index: 1;
+    }
+    .g-hero h1 .red { color: #c41d31; font-style: italic; }
+    .g-hero-meta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 32px;
+      align-items: start;
+    }
+    .g-hero-desc {
+      font-size: 1.1rem;
+      font-weight: 500;
+      line-height: 1.55;
+      border-left: 8px solid #c41d31;
+      padding-left: 20px;
+    }
+    .g-hero-catalogue {
+      background: #fcd846;
+      padding: 14px 18px;
+      transform: rotate(-1deg);
+      align-self: flex-start;
+    }
+    .g-hero-catalogue p {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      line-height: 1.8;
+    }
+
+    /* ---- Section labels ---- */
+    .section-label {
+      font-family: 'Epilogue', sans-serif;
+      font-weight: 900;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      border-bottom: 3px solid #383834;
+      padding-bottom: 8px;
+      margin: 80px 0 32px;
+      color: #776300;
+    }
+
+    /* ---- Art Grid ---- */
+    .art-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 24px;
+      margin-bottom: 40px;
+      align-items: start;
+    }
+    .art-grid > * { min-width: 0; }
+    .c8  { grid-column: span 8; }
+    .c4  { grid-column: span 4; }
+    .c12 { grid-column: span 12; }
+    .c5  { grid-column: span 5; }
+    .c7  { grid-column: span 7; }
+    .c6  { grid-column: span 6; }
+    .c3  { grid-column: span 3; }
+
+    .art-card {
+      border: 5px solid #383834;
+      overflow: hidden;
+      position: relative;
+      background: #f6f3ed;
+      transition: transform 0.15s;
+    }
+    .art-card:hover { transform: translate(-3px, -3px); }
+    .art-card img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+    .art-card-label {
+      padding: 14px 16px;
+      background: #fffcf6;
+    }
+    .art-card-label h3 {
+      font-family: 'Epilogue', sans-serif;
+      font-weight: 900;
+      font-size: 1.05rem;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+    .art-card-label .medium {
+      font-size: 0.72rem;
+      opacity: 0.5;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin-top: 3px;
+      font-style: italic;
+    }
+    .art-card-label .statement {
+      font-size: 0.88rem;
+      line-height: 1.6;
+      margin-top: 10px;
+      color: #383834;
+      border-top: 2px solid #eae8e0;
+      padding-top: 10px;
+    }
+    .art-card-dark {
+      background: #383834;
+      color: #fffcf6;
+      padding: 14px 16px;
+    }
+    .art-card-dark h3 {
+      font-family: 'Epilogue', sans-serif;
+      font-weight: 900;
+      font-size: 1.05rem;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+    }
+    .art-card-dark .medium { color: #fcd846; font-size: 0.7rem; font-style: italic; margin-top: 4px; }
+    .art-card-dark .statement { font-size: 0.85rem; line-height: 1.6; margin-top: 10px; opacity: 0.85; }
+
+    .art-tag {
+      position: absolute;
+      background: #c41d31;
+      color: white;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 5px 10px;
+      z-index: 10;
+    }
+    .art-tag.tr { top: 10px; right: 10px; }
+    .art-tag.tl { top: 10px; left: 10px; }
+    .art-tag.yellow { background: #fcd846; color: #383834; }
+
+    .art-rotated {
+      transform: rotate(-2deg);
+      transition: transform 0.18s;
+    }
+    .art-rotated:hover { transform: rotate(0deg) translate(-3px,-3px); }
+
+    /* ---- Side info panel ---- */
+    .info-panel {
+      padding: 32px 24px 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      gap: 16px;
+    }
+    .info-panel h3 {
+      font-family: 'Epilogue', sans-serif;
+      font-weight: 900;
+      font-style: italic;
+      font-size: 2.4rem;
+      text-transform: uppercase;
+      letter-spacing: -0.04em;
+      line-height: 0.95;
+    }
+    .info-panel .medium {
+      font-size: 0.72rem;
+      font-style: italic;
+      color: #776300;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .info-panel p {
+      font-size: 0.95rem;
+      line-height: 1.65;
+      color: #656460;
+    }
+    .info-panel .divider {
+      height: 6px;
+      background: #fcd846;
+      width: 100%;
+      opacity: 0.6;
+    }
+
+    /* ---- Quote break ---- */
+    .quote-break {
+      border-top: 5px solid #383834;
+      border-bottom: 5px solid #383834;
+      padding: 28px 0;
+      text-align: center;
+      margin: 60px 0;
+    }
+    .quote-break p {
+      font-family: 'Epilogue', sans-serif;
+      font-weight: 700;
+      font-style: italic;
+      font-size: clamp(1.2rem, 2.8vw, 1.8rem);
+      letter-spacing: -0.02em;
+    }
+
+    /* ---- Triptych row ---- */
+    .triptych {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    /* ---- Sculpture hero ---- */
+    .sculpture-hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border: 5px solid #383834;
+      margin-bottom: 40px;
+    }
+    .sculpture-hero-img { overflow: hidden; }
+    .sculpture-hero-img img { width: 100%; height: 100%; object-fit: cover; min-height: 400px; display: block; }
+    .sculpture-hero-info {
+      background: #383834;
+      color: #fffcf6;
+      padding: 48px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .sculpture-hero-num {
+      font-family: 'Epilogue', sans-serif;
+      font-weight: 900;
+      font-size: 5rem;
+      line-height: 1;
+      opacity: 0.1;
+      color: #c41d31;
+      letter-spacing: -0.05em;
+    }
+    .sculpture-hero-title {
+      font-family: 'Epilogue', sans-serif;
+      font-weight: 900;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      text-transform: uppercase;
+      letter-spacing: -0.04em;
+      line-height: 0.95;
+      margin-bottom: 8px;
+    }
+    .sculpture-hero-sub {
+      color: #fcd846;
+      font-family: 'Epilogue', sans-serif;
+      font-weight: 700;
+      font-style: italic;
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+    }
+    .sculpture-hero-desc {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      opacity: 0.85;
+      border-left: 4px solid #c41d31;
+      padding-left: 16px;
+      margin-bottom: 20px;
+    }
+    .sculpture-hero-medium {
+      font-size: 0.62rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      opacity: 0.4;
+    }
+
+    /* ---- Pair layout ---- */
+    .pair-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    /* ---- Drawing section ---- */
+    .drawing-section {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 40px;
+      margin-bottom: 60px;
+      align-items: start;
+    }
+    .drawing-text { padding: 20px 0; }
+    .drawing-text h3 {
+      font-family: 'Epilogue', sans-serif;
+      font-weight: 900;
+      font-size: 2.5rem;
+      text-transform: uppercase;
+      letter-spacing: -0.04em;
+      line-height: 0.9;
+      margin-bottom: 16px;
+    }
+    .drawing-text .medium {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #776300;
+      margin-bottom: 16px;
+    }
+    .drawing-text p { font-size: 1rem; line-height: 1.7; color: #656460; }
+
+    /* ---- Small works row ---- */
+    .small-works {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+    .small-card {
+      border: 4px solid #383834;
+      overflow: hidden;
+    }
+    .small-card img { width: 100%; display: block; object-fit: cover; }
+    .small-card-label {
+      padding: 10px 12px;
+      background: #f6f3ed;
+    }
+    .small-card-label h4 {
+      font-family: 'Epilogue', sans-serif;
+      font-weight: 900;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+    }
+    .small-card-label p {
+      font-size: 0.7rem;
+      color: #656460;
+      margin-top: 4px;
+      font-style: italic;
+    }
+
+    /* ---- Process notes ---- */
+    .process-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin: 60px 0;
+    }
+    .process-note { border-left: 4px solid #776300; padding-left: 20px; margin-bottom: 28px; }
+    .process-note-date { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.18em; color: #776300; margin-bottom: 10px; }
+    .process-note p { font-size: 1rem; font-style: italic; line-height: 1.65; }
+    .process-cta {
+      background: #eae8e0;
+      border: 8px double #383834;
+      padding: 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 20px;
+    }
+    .process-cta h3 {
+      font-family: 'Epilogue', sans-serif;
+      font-weight: 900;
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+    }
+
+    @media (max-width: 900px) {
+      .art-grid { grid-template-columns: 1fr 1fr; }
+      .c8,.c4,.c12,.c5,.c7,.c6 { grid-column: span 2; }
+      .c3 { grid-column: span 1; }
+      .sculpture-hero { grid-template-columns: 1fr; }
+      .sculpture-hero-img img { min-height: 300px; }
+      .triptych { grid-template-columns: 1fr 1fr; }
+      .drawing-section { grid-template-columns: 1fr; }
+      .pair-grid { grid-template-columns: 1fr; }
+      .process-grid { grid-template-columns: 1fr; }
+      .g-hero-meta { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .art-grid { grid-template-columns: 1fr; }
+      .triptych { grid-template-columns: 1fr; }
+      .small-works { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Maanya Patel</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="gallery.html" class="active">Gallery</a>
+      <a href="about.html">About</a>
+      <a href="exhibitions.html">Exhibitions</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <button class="nav-menu-btn" onclick="toggleMenu()" aria-label="Menu">☰</button>
+  </div>
+  <div class="nav-mobile" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="gallery.html" class="active">Gallery</a>
+    <a href="about.html">About</a>
+    <a href="exhibitions.html">Exhibitions</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<main class="page-content">
+
+  <!-- Hero -->
+  <section class="g-hero">
+    <div class="g-hero-ghost">CHAOS</div>
+    <h1>
+      Evidence of<br/>
+      <span class="red">The Nervous<br/>System</span>
+    </h1>
+    <div class="g-hero-meta">
+      <p class="g-hero-desc">
+        This is not art. This is a biological record of a panic attack, a seizure of colour, and the electricity that travels between my synapses and the charcoal in my hand.
+      </p>
+      <div class="g-hero-catalogue">
+        <p>Catalogue ID: EP-2024-GLLRY<br/>Status: Unfiltered / Raw<br/>Location: The Cortex</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== PAINTINGS ======== -->
+  <div class="section-label">Paintings — Selected Works</div>
+
+  <!-- Row 1: Breach (large) + Eruption (offset) -->
+  <div class="art-grid">
+    <div class="c8 art-card" style="transform:rotate(0.6deg);" onmouseover="this.style.transform='translate(-3px,-3px)'" onmouseout="this.style.transform='rotate(0.6deg)'">
+      <div class="art-tag tl">FIG. 001</div>
+      <img src="images/painting-breach.jpg" alt="Breach" style="aspect-ratio:3/4;" />
+      <div class="art-card-label">
+        <h3>Breach</h3>
+        <div class="medium">Acrylic, oil stick on canvas</div>
+        <p class="statement">The first slash. The canvas was grey and the red refused to stay contained. Every mark is a record of resistance — the scratching, the stippling, the vertical drag. This is what a breakdown looks like when it decides to become architecture.</p>
+      </div>
+    </div>
+    <div class="c4" style="margin-top:56px;">
+      <div class="art-card art-rotated">
+        <img src="images/painting-eruption.jpg" alt="Eruption" style="aspect-ratio:3/4;" />
+        <div class="art-card-label">
+          <h3>Eruption</h3>
+          <div class="medium">Acrylic, mixed media on canvas</div>
+          <p class="statement">No structure survives this one. Pink and crimson and teal and violet collide at the centre and pull outward. The palette knife moved faster than the intention.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Row 2: Crowd (wide) + text panel -->
+  <div class="art-grid">
+    <div class="c7 art-card">
+      <img src="images/painting-crowd.jpg" alt="Crowd" style="height:560px;" />
+      <div class="art-tag tr yellow">FIG. 002</div>
+    </div>
+    <div class="c5 info-panel">
+      <h3>Crowd</h3>
+      <div class="medium">Acrylic on canvas</div>
+      <p>The city as a nervous system. Faces overlapping, bodies dissolving into colour fields — cyan, ochre, pink. Every figure is mid-sentence. The painting refuses to give any one of them priority.</p>
+      <div class="divider"></div>
+    </div>
+  </div>
+
+  <!-- Row 3: Transmission (dark) + Herd (featured with offset shadow) -->
+  <div class="art-grid" style="margin-top:40px;">
+    <div class="c4 art-card" style="background:#383834;">
+      <img src="images/painting-transmission.jpg" alt="The Transmission" style="height:340px;" />
+      <div class="art-card-dark">
+        <h3>The Transmission</h3>
+        <div class="medium">Acrylic on canvas</div>
+        <p class="statement">Two figures on a burning ground. Between them: something red, something being passed or extracted. You take something from everyone you touch.</p>
+      </div>
+    </div>
+    <div class="c8" style="position:relative;">
+      <div style="position:absolute;top:0;left:0;width:100%;height:calc(100% - 80px);background:#ff7576;transform:translate(-8px,8px);z-index:0;border:4px solid #383834;"></div>
+      <div class="art-card" style="position:relative;z-index:1;">
+        <img src="images/painting-herd.jpg" alt="The Herd Within" style="height:420px;" />
+        <div class="art-card-label">
+          <h3>The Herd Within</h3>
+          <div class="medium">Acrylic, mixed media on canvas</div>
+          <p class="statement">Figures and animals — inseparable. The human and the bovine folded together in warm reds and golds. The crowd has no clear edges. Everyone is inside someone else's body here.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Row 4: Shelter + Horses triptych-style -->
+  <div class="art-grid" style="margin-top:40px;">
+    <div class="c6 art-card" style="border-color:#776300;">
+      <img src="images/painting-shelter.jpg" alt="Shelter" style="height:480px;" />
+      <div class="art-card-label">
+        <h3>Shelter</h3>
+        <div class="medium">Acrylic on canvas</div>
+        <p class="statement">They carry umbrellas against a sky the colour of a wound. A mushroom grows at the feet of the smallest figure. The shelters don't help. The rain is interior.</p>
+      </div>
+    </div>
+    <div class="c6 art-card" style="border-color:#c41d31;margin-top:32px;">
+      <img src="images/painting-horses.jpg" alt="The Run" style="height:420px;" />
+      <div class="art-card-label">
+        <h3>The Run</h3>
+        <div class="medium">Acrylic on canvas</div>
+        <p class="statement">Purple horses under a red sun. Nothing is chasing them — the running is the point. Speed as a way of feeling alive without needing a reason.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quote break -->
+  <div class="quote-break">
+    <p>"The canvas is the only place where the noise makes sense."<br/>
+    <span style="font-style:normal;font-size:0.72rem;font-family:'Space Grotesk',sans-serif;opacity:0.5;letter-spacing:0.1em;text-transform:uppercase;">— Maanya Patel, Studio Notes 2024</span></p>
+  </div>
+
+  <!-- ======== WORKS ON PAPER ======== -->
+  <div class="section-label">Works on Paper — Ink &amp; Drawing</div>
+
+  <div class="drawing-section">
+    <div class="art-card" style="border-width:6px;">
+      <img src="images/drawing-examination.jpg" alt="The Procedure" style="width:100%;" />
+    </div>
+    <div class="drawing-text">
+      <h3>The<br/>Procedure</h3>
+      <div class="medium">Ink on paper · 2024</div>
+      <p>A figure is laid out on a medical table at the vanishing point of the image. Flames — or perhaps crowds — line both sides of the perspective. A dark horned figure presides at the far end.</p>
+      <br/>
+      <p>The room is both operating theatre and theatre-theatre. The patient is very still. The audience is on fire.</p>
+      <br/>
+      <div style="border-left:4px solid #c41d31;padding-left:14px;font-style:italic;font-size:0.9rem;color:#383834;">
+        "This is the drawing I made when I realised I had been complicit in my own examination."
+      </div>
+    </div>
+  </div>
+
+  <!-- ======== SMALL WORKS ======== -->
+  <div class="section-label">Small Works — Studies &amp; Experiments</div>
+
+  <div class="small-works">
+    <div class="small-card">
+      <img src="images/small-gold.jpg" alt="Cell Study (Gold)" style="aspect-ratio:1;" />
+      <div class="small-card-label">
+        <h4>Cell Study (Gold)</h4>
+        <p>Acrylic, impasto on board · Up close: organisms. Cellular. The canvas held in the hand like evidence.</p>
+      </div>
+    </div>
+    <div class="small-card" style="margin-top:24px;">
+      <img src="images/small-poured.jpg" alt="Poured (Pair)" style="aspect-ratio:4/5;" />
+      <div class="small-card-label">
+        <h4>Poured (Pair)</h4>
+        <p>Fluid acrylic on board · diptych · Two surfaces that caught the same moment of pouring. The fluid remembers its movement even after it dries.</p>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;justify-content:center;padding:20px;border:3px dashed #bbb9b4;">
+      <p style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.12em;color:#aaa;text-align:center;font-family:'Space Grotesk',sans-serif;">Additional small works available on request</p>
+      <div style="text-align:center;margin-top:16px;"><a href="contact.html" style="font-family:'Epilogue',sans-serif;font-weight:900;font-size:0.8rem;text-transform:uppercase;color:#c41d31;text-decoration:none;border-bottom:2px solid #c41d31;">Inquire →</a></div>
+    </div>
+  </div>
+
+  <!-- ======== SCULPTURES ======== -->
+  <div class="section-label">Sculpture — Works in Glass, Clay &amp; Mixed Media</div>
+
+  <!-- S1: MERIDIAN (BLOOD MEMORY) — glass vessel -->
+  <div class="sculpture-hero">
+    <div class="sculpture-hero-img">
+      <img src="images/sculpture-vessel.jpg" alt="Meridian (Blood Memory)" />
+    </div>
+    <div class="sculpture-hero-info">
+      <div class="sculpture-hero-num">S.01</div>
+      <div>
+        <div class="sculpture-hero-title">Meridian<br/>(Blood Memory)</div>
+        <div class="sculpture-hero-sub">Glass vessel installation, 2024</div>
+        <p class="sculpture-hero-desc">The body as a container. A fishbowl as a skull. Red paint bleeds down the inside of the glass — the mind staining its own walls. Salt accumulates at the base like what the body processes but cannot expel. Broken glass suspended mid-cavity: memory as shrapnel.</p>
+        <p class="sculpture-hero-desc" style="border-left-color:#fcd846;">The red organ at the centre is neither lung nor heart nor brain. It is all of them.</p>
+        <div class="sculpture-hero-medium">Glass vessel · oil paint · rock salt · broken glass · mixed media</div>
+      </div>
+      <a href="contact.html" style="display:inline-block;background:#c41d31;color:white;font-family:'Epilogue',sans-serif;font-weight:900;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.05em;padding:12px 22px;text-decoration:none;border:4px solid #c41d31;margin-top:24px;transition:transform 0.08s;" onmouseover="this.style.transform='translate(3px,3px)'" onmouseout="this.style.transform='translate(0,0)'">
+        Inquire →
+      </a>
+    </div>
+  </div>
+
+  <!-- S1 detail + vessel companion -->
+  <div class="pair-grid">
+    <div class="art-card">
+      <img src="images/sculpture-vessel-detail.jpg" alt="On the Altar — detail" style="width:100%;aspect-ratio:4/3;" />
+      <div class="art-card-label">
+        <h3>On the Altar</h3>
+        <div class="medium">Anatomical cast · rock salt · broken glass · oil · white ceramic</div>
+        <p class="statement">The same organ, removed from its vessel. Displayed. Examined. The salt is a preservative and a wound. What is placed on a plate to be looked at can no longer look back.</p>
+      </div>
+    </div>
+    <div style="padding:24px;background:#f6f3ed;border:5px solid #383834;display:flex;flex-direction:column;justify-content:center;gap:12px;">
+      <div style="font-family:'Epilogue',sans-serif;font-weight:900;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.2em;color:#776300;">Artist Note — Meridian Series</div>
+      <p style="font-size:1rem;font-style:italic;line-height:1.7;">"I didn't set out to make a sculpture about grief. But grief is what made it. The fishbowl came first. Then the organ. Then I understood what I was doing."</p>
+      <div style="height:4px;background:#c41d31;width:60px;"></div>
+      <p style="font-size:0.8rem;color:#656460;">The Meridian series comprises two related works: the contained vessel (S.01) and the extracted organ (S.01b), intended to be exhibited together.</p>
+    </div>
+  </div>
+
+  <!-- S2: HOLD STILL — pink safety pin, triptych -->
+  <div class="section-label" style="margin-top:60px;">Hold Still — Sculpture Series</div>
+
+  <div style="margin-bottom:32px;">
+    <div style="max-width:580px;">
+      <div style="font-family:'Epilogue',sans-serif;font-weight:900;font-size:2.2rem;text-transform:uppercase;letter-spacing:-0.03em;line-height:0.95;margin-bottom:12px;">Hold Still</div>
+      <div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:#776300;margin-bottom:12px;">Air-dry clay · safety pin · mixed media · 2024</div>
+      <p style="font-size:1rem;line-height:1.7;color:#656460;">The body pinned in place — flesh-pink, malformed and irregular, the safety pin running through it like a clinical intervention. Three photographs, three ways of holding it. The safety pin is the thing that was supposed to keep something together.</p>
+    </div>
+  </div>
+
+  <div class="triptych">
+    <div class="art-card" style="transform:rotate(1deg);" onmouseover="this.style.transform='translate(-3px,-3px) rotate(0deg)'" onmouseout="this.style.transform='rotate(1deg)'">
+      <div class="art-tag tl" style="font-size:0.55rem;">VIEW I</div>
+      <img src="images/sculpture-pin-hand.jpg" alt="Hold Still — hand-held" style="aspect-ratio:3/4;" />
+      <div class="art-card-label">
+        <div class="medium">In the hand · offered</div>
+      </div>
+    </div>
+    <div class="art-card" style="margin-top:28px;transform:rotate(-0.8deg);" onmouseover="this.style.transform='translate(-3px,-3px) rotate(0deg)'" onmouseout="this.style.transform='rotate(-0.8deg)'">
+      <div class="art-tag tl" style="font-size:0.55rem;">VIEW II</div>
+      <img src="images/sculpture-pin-face.jpg" alt="Hold Still — close up" style="aspect-ratio:3/4;" />
+      <div class="art-card-label">
+        <div class="medium">The wound · examined</div>
+      </div>
+    </div>
+    <div class="art-card" style="margin-top:12px;transform:rotate(1.2deg);" onmouseover="this.style.transform='translate(-3px,-3px) rotate(0deg)'" onmouseout="this.style.transform='rotate(1.2deg)'">
+      <div class="art-tag tl" style="font-size:0.55rem;">VIEW III</div>
+      <img src="images/sculpture-pin-side.jpg" alt="Hold Still — side view" style="aspect-ratio:4/3;" />
+      <div class="art-card-label">
+        <div class="medium">Laid flat · resting</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S3: CORPUS + S4: HANGING GARDEN — side by side -->
+  <div class="pair-grid" style="margin-top:60px;">
+    <div class="sculpture-hero" style="grid-template-columns:1fr;border:5px solid #383834;display:block;">
+      <div style="overflow:hidden;">
+        <img src="images/sculpture-torso.jpg" alt="Corpus (Without Witness)" style="width:100%;display:block;object-fit:cover;aspect-ratio:3/4;" />
+      </div>
+      <div style="background:#383834;color:#fffcf6;padding:32px 28px;">
+        <div style="font-family:'Epilogue',sans-serif;font-weight:900;font-size:0.65rem;opacity:0.4;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:8px;">S.03</div>
+        <div style="font-family:'Epilogue',sans-serif;font-weight:900;font-size:1.8rem;text-transform:uppercase;letter-spacing:-0.04em;line-height:0.95;margin-bottom:8px;">Corpus<br/>(Without Witness)</div>
+        <div style="color:#fcd846;font-style:italic;font-size:0.8rem;margin-bottom:16px;">Plaster, acrylic · mixed media</div>
+        <p style="font-size:0.9rem;line-height:1.65;opacity:0.85;">A torso sculpted headless. What the body looks like when the mind is removed from the record. The blooms at the neck are not flowers — they are what thought looks like when it has nowhere to go.</p>
+      </div>
+    </div>
+    <div class="sculpture-hero" style="grid-template-columns:1fr;border:5px solid #383834;display:block;">
+      <div style="overflow:hidden;">
+        <img src="images/sculpture-hanging.jpg" alt="The Hanging Garden" style="width:100%;display:block;object-fit:cover;aspect-ratio:3/4;" />
+      </div>
+      <div style="background:#c41d31;color:white;padding:32px 28px;">
+        <div style="font-family:'Epilogue',sans-serif;font-weight:900;font-size:0.65rem;opacity:0.6;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:8px;">S.04</div>
+        <div style="font-family:'Epilogue',sans-serif;font-weight:900;font-size:1.8rem;text-transform:uppercase;letter-spacing:-0.04em;line-height:0.95;margin-bottom:8px;">The Hanging<br/>Garden</div>
+        <div style="color:#fcd846;font-style:italic;font-size:0.8rem;margin-bottom:16px;">Air-dry clay · cord · mixed media</div>
+        <p style="font-size:0.9rem;line-height:1.65;opacity:0.9;">Pink intestinal coils suspended from a red thread. The gut — second brain, site of instinct and fear — made visible and displayed like a chandelier. Beauty and revulsion occupying the same form.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Process Notes -->
+  <div class="quote-break" style="margin-top:80px;">
+    <p>"The texture is the record of the resistance."<br/>
+    <span style="font-style:normal;font-size:0.72rem;font-family:'Space Grotesk',sans-serif;opacity:0.5;letter-spacing:0.1em;text-transform:uppercase;">— Maanya Patel, Studio Notes 2024</span></p>
+  </div>
+
+  <div class="process-grid">
+    <div>
+      <div class="process-note">
+        <div class="process-note-date">Date: 03/12</div>
+        <p>"I don't paint things. I paint the vibration of things. If you can see the bone, you're looking at the wrong part. Look at the space between the joint where the ache lives."</p>
+      </div>
+      <div class="process-note" style="border-left-color:#c41d31;">
+        <div class="process-note-date" style="color:#c41d31;">Date: 04/01</div>
+        <p>"The grid is a lie we tell ourselves to feel safe. I use the grid only to show you how easily it breaks. Basquiat knew this. The lines are cages. Break the cage."</p>
+      </div>
+    </div>
+    <div class="process-cta">
+      <div style="font-size:3rem;color:#c41d31;">⬤</div>
+      <h3>The exhibition is a living document.<br/>The nervous system is still active.</h3>
+      <a href="contact.html" style="display:inline-block;background:#c41d31;color:white;font-family:'Epilogue',sans-serif;font-weight:900;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.06em;padding:14px 28px;text-decoration:none;border:4px solid #383834;transition:transform 0.08s;" onmouseover="this.style.transform='translate(3px,3px)'" onmouseout="this.style.transform='translate(0,0)'">
+        Inquire About Works
+      </a>
+    </div>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">Maanya Patel</div>
+      <div class="footer-copy">© Maanya Patel. Nervous System on Display.</div>
+    </div>
+    <div class="footer-links">
+      <a href="#">Instagram</a>
+      <a href="#">Behance</a>
+      <a href="gallery.html">Archive</a>
+      <a href="contact.html">Studio</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+</script>
+</body>
+</html>

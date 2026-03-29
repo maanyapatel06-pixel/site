@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ABOUT — THE METHOD | MAANYA PATEL</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,400;0,700;0,900;1,900&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ---- Hero ---- */
+    .method-hero {
+      padding: 80px 0 50px;
+      position: relative;
+    }
+
+    .method-num {
+      position: absolute;
+      top: 30px;
+      left: -10px;
+      font-family: 'Epilogue', sans-serif;
+      font-weight: 900;
+      font-size: clamp(6rem, 18vw, 14rem);
+      line-height: 1;
+      opacity: 0.07;
+      color: #383834;
+      letter-spacing: -0.06em;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .method-title {
+      font-family: 'Epilogue', sans-serif;
+      font-weight: 900;
+      font-style: italic;
+      font-size: clamp(5rem, 14vw, 11rem);
+      line-height: 0.85;
+      letter-spacing: -0.05em;
+      text-transform: uppercase;
+      position: relative;
+      z-index: 1;
+    }
+
+    .method-title .under {
+      color: #c41d31;
+      text-decoration: underline;
+      text-decoration-thickness: 8px;
+      text-underline-offset: 6px;
+      text-decoration-color: #776300;
+    }
+
+    .method-caption {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 20px;
+    }
+
+    .method-caption p {
+      max-width: 280px;
+      text-align: right;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #656460;
+      border-right: 4px solid #c41d31;
+      padding-right: 16px;
+    }
+
+    /* ---- Core Quote ---- */
+    .core-quote {
+      position: relative;
+      margin: 80px 0;
+    }
+
+    .core-quote-card {
+      background: #f0eee6;
+      border-left: 8px solid #383834;
+      padding: 48px 56px;
+      transform: rotate(-0.7deg);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.06);
+      position: relative;
+    }
+
+    .core-quote-card blockquote {
+      font-family: 'Epilogue', sans-serif;
+      font-weight: 700;
+      font-size: clamp(1.6rem, 3.5vw, 2.8rem);
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+    }
+
+    .core-quote-card .hi-red { color: #c41d31; font-style: italic; }
+    .core-quote-card .hi-yellow {
+      background: #fcd846;
+      padding: 0 6px;
+    }
+
+    .core-quote-attr {
+      margin-top: 32px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .core-quote-attr .dash {
+      height: 4px;
+      width: 60px;
+      background: #c41d31;
+    }
+
+    .core-quote-attr span {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+
+    .core-quote-ghost {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      width: 120px;
+      height: 120px;
+      border: 5px solid #383834;
+      opacity: 0.12;
+      z-index: -1;
+    }
+
+    /* ---- Full Statement ---- */
+    .statement-section {
+      margin: 80px 0;
+    }
+
+    .statement-section h2 {
+      font-family: 'Epilogue', sans-serif;
+      font-weight: 900;
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      text-transform: uppercase;
+      letter-spacing: -0.04em;
+      background: #383834;
+      color: #fffcf6;
+      display: inline-block;
+      padding: 6px 18px;
+      transform: skewX(-3deg);
+      margin-bottom: 36px;
+    }
+
+    .statement-text {
+      max-width: 680px;
+      font-size: 1.15rem;
+      line-height: 1.75;
+      color: #383834;
+    }
+
+    .statement-text p { margin-bottom: 20px; }
+
+    /* ---- Chaos Layout ---- */
+    .chaos-section {
+      display: grid;
+      grid-template-columns: 7fr 5fr;
+      gap: 40px;
+      align-items: center;
+      margin: 80px 0;
+    }
+
+    .chaos-img {
+      position: relative;
+    }
+
+    .chaos-img-inner {
+      border: 8px solid #383834;
+      overflow: hidden;
+      position: relative;
+      filter: grayscale(1);
+      transition: filter 0.4s;
+    }
+
+    .chaos-img-inner:hover { filter: grayscale(0); }
+
+    .chaos-img-inner .canvas {
+      width: 100%;
+      height: 480px;
+    }
+
+    .chaos-img-tag {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: #c41d31;
+      color: white;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 5px 10px;
+    }
+
+    .chaos-text h2 {
+      font-family: 'Epilogue', sans-serif;
+      font-weight: 900;
+      font-size: 2.8rem;
+      text-transform: uppercase;
+      letter-spacing: -0.04em;
+      line-height: 0.93;
+      margin-bottom: 28px;
+    }
+
+    .chaos-text h2 .red { color: #c41d31; }
+
+    .chaos-text p {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #656460;
+      margin-bottom: 16px;
+    }
+
+    .chaos-text .pull-quote {
+      font-style: italic;
+      font-weight: 500;
+      border-top: 2px solid #383834;
+      padding-top: 16px;
+      margin-top: 20px;
+      color: #383834;
+    }
+
+    /* ---- Influences ---- */
+    .influences-section {
+      margin: 80px 0;
+    }
+
+    .inf-header {
+      font-family: 'Epilogue', sans-serif;
+      font-weight: 900;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      text-transform: uppercase;
+      letter-spacing: -0.04em;
+      background: #383834;
+      color: #fffcf6;
+      display: inline-block;
+      padding: 8px 20px;
+      margin-bottom: 32px;
+    }
+
+    .inf-list {
+      list-style: none;
+      border-top: 4px solid #383834;
+    }
+
+    .inf-item {
+      border-bottom: 4px solid #383834;
+      padding: 20px 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      cursor: crosshair;
+      transition: background 0.08s;
+    }
+
+    .inf-item:hover { background: #f0eee6; }
+    .inf-item:hover .inf-name { color: #c41d31; }
+
+    .inf-name {
+      font-family: 'Epilogue', sans-serif;
+      font-weight: 700;
+      font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      transition: color 0.08s;
+    }
+
+    .inf-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.75rem;
+      opacity: 0.4;
+    }
+
+    /* ---- Biography ---- */
+    .bio-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin: 80px 0;
+    }
+
+    .bio-card {
+      background: #f6f3ed;
+      border: 5px solid #383834;
+      padding: 36px;
+    }
+
+    .bio-card h3 {
+      font-family: 'Epilogue', sans-serif;
+      font-weight: 900;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+      border-bottom: 3px solid #776300;
+      padding-bottom: 10px;
+    }
+
+    .bio-card p {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: #383834;
+    }
+
+    .bio-card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .bio-card ul li {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      padding: 6px 0;
+      border-bottom: 1px solid #eae8e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    .bio-card ul li span {
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.72rem;
+      color: #776300;
+      white-space: nowrap;
+    }
+
+    /* ---- Final Entry ---- */
+    .final-entry {
+      position: relative;
+      background: #eae8e0;
+      border: 4px dashed #656460;
+      padding: 64px 56px;
+      margin: 80px 0;
+      max-width: 760px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .final-entry-tag {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #c41d31;
+      color: white;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      padding: 5px 14px;
+    }
+
+    .final-entry-text {
+      font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+      line-height: 1.6;
+      margin-bottom: 40px;
+    }
+
+    .final-entry-text .rupture {
+      position: relative;
+      z-index: 1;
+    }
+
+    .final-entry-text .rupture::after {
+      content: '';
+      position: absolute;
+      left: -3px; top: 50%;
+      width: calc(100% + 6px); height: 1.1em;
+      background: #fcd846;
+      z-index: -1;
+      transform: translateY(-50%) rotate(-0.8deg);
+    }
+
+    .final-entry-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .final-entry-footer .archive-label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      opacity: 0.45;
+    }
+
+    .btn-stamp {
+      display: inline-block;
+      background: #383834;
+      color: #fffcf6;
+      font-family: 'Epilogue', sans-serif;
+      font-weight: 900;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 14px 28px;
+      border-bottom: 5px solid #c41d31;
+      border-right: 5px solid #c41d31;
+      text-decoration: none;
+      transition: transform 0.08s;
+      display: inline-block;
+    }
+
+    .btn-stamp:hover { transform: translate(3px, 3px); }
+
+    @media (max-width: 768px) {
+      .chaos-section { grid-template-columns: 1fr; }
+      .bio-section { grid-template-columns: 1fr; }
+      .core-quote-card { padding: 28px 24px; }
+      .final-entry { padding: 48px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== NAVIGATION ===== -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Maanya Patel</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="about.html" class="active">About</a>
+      <a href="exhibitions.html">Exhibitions</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <button class="nav-menu-btn" onclick="toggleMenu()" aria-label="Menu">☰</button>
+  </div>
+  <div class="nav-mobile" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="about.html" class="active">About</a>
+    <a href="exhibitions.html">Exhibitions</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<!-- ===== MAIN ===== -->
+<main class="page-content">
+
+  <!-- Hero -->
+  <section class="method-hero">
+    <div class="method-num">01</div>
+    <h1 class="method-title">
+      THE<br/>
+      <span class="under">METHOD</span>
+    </h1>
+    <div class="method-caption">
+      <p>Observations on the mechanics of a fractured psyche.</p>
+    </div>
+  </section>
+
+  <!-- Core Quote -->
+  <section class="core-quote">
+    <div class="core-quote-card">
+      <blockquote>
+        "I paint like a <span class="hi-red">mind leaking</span>…<br/>
+        thoughts slipping <span class="hi-yellow">sideways</span>,<br/>
+        emotions mutating mid-breath."
+      </blockquote>
+      <div class="core-quote-attr">
+        <div class="dash"></div>
+        <span>Maanya Patel</span>
+      </div>
+    </div>
+    <div class="core-quote-ghost"></div>
+  </section>
+
+  <!-- Chaos as a Language -->
+  <section class="chaos-section">
+    <div class="chaos-img">
+      <div class="chaos-img-inner">
+        <!-- Replace with: <img src="images/studio-process.jpg" alt="Studio process detail" style="width:100%;height:480px;object-fit:cover"> -->
+        <div class="canvas canvas-4" style="height:480px;"></div>
+        <div class="canvas-label">FIG. 04: The Rupture</div>
+      </div>
+      <div class="chaos-img-tag">FIG. 04: THE RUPTURE</div>
+    </div>
+    <div class="chaos-text">
+      <h2>
+        Chaos<br/>as a<br/><span class="red">Language</span>
+      </h2>
+      <p>The canvas is not a space for order. It is a biological imperative. My process begins with the rejection of the <s style="text-decoration-color:#c41d31;text-decoration-thickness:3px;">symmetrical</s>.</p>
+      <p>I treat the oil stick as an extension of the nervous system — every twitch, every hesitation is recorded. The grit you see under the paint is the studio floor itself. The dust of the day is folded into the pigment.</p>
+      <p class="pull-quote">"The texture is the record of the resistance."</p>
+    </div>
+  </section>
+
+  <!-- Full Artist Statement -->
+  <section class="statement-section">
+    <h2>Artist Statement</h2>
+    <div class="statement-text">
+      <p>Influenced by abstract expressionism, my work dissects mental health, philosophy and the strange theatre of perception. Figures dissolve, meanings rot, logic stutters.</p>
+      <p>I use chaos as a language to exhume what's been buried too deep to name. The bizarre isn't aesthetic — it's evidence. Each piece is a nervous system on display, twitching between control and collapse.</p>
+      <p>I create to rupture clarity, to sit inside discomfort, and to feel violently, irrationally, unmistakably alive.</p>
+      <p>The work doesn't seek balance. It lives in the extremes, asking the viewer to sit within instability and witness how reality reshapes itself moment to moment.</p>
+    </div>
+  </section>
+
+  <!-- Influences -->
+  <section class="influences-section">
+    <div class="inf-header">Influences</div>
+    <ul class="inf-list">
+      <li class="inf-item">
+        <span class="inf-name">Abstract Expressionism</span>
+        <span class="inf-num">01</span>
+      </li>
+      <li class="inf-item">
+        <span class="inf-name">Philosophy</span>
+        <span class="inf-num">02</span>
+      </li>
+      <li class="inf-item">
+        <span class="inf-name">The Strange Theatre of Perception</span>
+        <span class="inf-num">03</span>
+      </li>
+      <li class="inf-item">
+        <span class="inf-name">Mental Health — Language &amp; Rupture</span>
+        <span class="inf-num">04</span>
+      </li>
+      <li class="inf-item">
+        <span class="inf-name">Jean-Michel Basquiat</span>
+        <span class="inf-num">05</span>
+      </li>
+      <li class="inf-item">
+        <span class="inf-name">The Body as Archive</span>
+        <span class="inf-num">06</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Biography -->
+  <section class="bio-section">
+    <div class="bio-card">
+      <h3>Background</h3>
+      <p>Maanya Patel is a London-based artist working in painting, mixed media, and sculpture installation. Born in Jamshedpur, India, her practice examines the collision between mental experience and physical reality — using the body as both subject and instrument.</p>
+      <br/>
+      <p>She graduated from the Arts University Bournemouth (AUB), where her post-graduate work explored neural metaphor and the breakdown of visual logic. Her sculpture and painting practice has since expanded to include found objects, glass, and organic materials.</p>
+    </div>
+    <div class="bio-card">
+      <h3>Education &amp; Practice</h3>
+      <ul>
+        <li>Post-Graduate Fine Art, AUB <span>2024</span></li>
+        <li>Curated: Figli Del Mare by Lisa Moro <span>2024</span></li>
+        <li>AR Installation: Walk Into the Canvas <span>2024</span></li>
+        <li>Based in London &amp; Bournemouth <span>Current</span></li>
+      </ul>
+      <br/>
+      <h3 style="margin-top:20px;">Working With</h3>
+      <ul>
+        <li>Oil stick on unstretched canvas</li>
+        <li>Charcoal &amp; acrylic</li>
+        <li>Found cardboard &amp; glass</li>
+        <li>Rock salt &amp; organic matter</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Final Entry -->
+  <div class="final-entry">
+    <div class="final-entry-tag">Final Entry</div>
+    <p class="final-entry-text">
+      To see clearly is to admit the <span class="rupture">rupture</span>. My work exists in that split-second between the signal and the reaction. It is the <strong style="color:#c41d31;text-decoration:underline;text-decoration-color:#776300;">nervous system</strong> pinned to the wall, still twitching.
+    </p>
+    <div class="final-entry-footer">
+      <div class="archive-label">Patel Studio Archives // 2024</div>
+      <a href="gallery.html" class="btn-stamp">Enter the Archive</a>
+    </div>
+  </div>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">Maanya Patel</div>
+      <div class="footer-copy">© Maanya Patel. Nervous System on Display.</div>
+    </div>
+    <div class="footer-links">
+      <a href="#">Instagram</a>
+      <a href="#">Behance</a>
+      <a href="gallery.html">Archive</a>
+      <a href="contact.html">Studio</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+</script>
+</body>
+</html>
